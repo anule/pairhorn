@@ -1,0 +1,25 @@
+{
+  "name": "pairhorn-slackbot",
+  "version": "1.0.0",
+  "description": "A simple command that generates pairs",
+  "main": "index.js",
+  "scripts": {
+    "start": "mocha test/*.test.js --exit && node index.js",
+    "test": "mocha test/*.test.js --exit"
+  },
+  "keywords": [
+    "bot",
+    "slack"
+  ],
+  "author": "Anule Ndukwu",
+  "contributors": "Ben Sheldon",
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "express": "^4.15.0",
+    "request": "^2.80.0",
+    "node-persist": "^2.1.0",
+    "mocha": "^5.2.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0"
+  }
+}
