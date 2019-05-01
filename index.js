@@ -2,7 +2,7 @@
  * Pairhorn: A Slack bot that generates pairs
  *
  * Author: Anule Ndukwu (@awnoodles)
- * Contributor(s): Ben Sheldon (
+ * Contributor(s): Ben Sheldon (@bensheldon)
  * *********************************************/
 
 'use strict';
@@ -31,11 +31,16 @@ keepalive()
 // Internal integration only (No OAuth)
 const oauthToken = process.env.SLACK_AUTH_TOKEN;
 
-const storage = require('node-persist');
-storage.initSync();
-
 let apiUrl = 'https://slack.com/api';
+/**************************
+/* Storage
+/* ************************/
+const storage = require('node-persist');
+storage.init({
+  logging: true
+});
 
+storage.clear();
 
 /* *******************************
 /* Slash Command
@@ -111,8 +116,10 @@ app.get('/auth', function(req, res){
   })
 });
 
+
+
 /* Extra */
-module.exports = app;
+module.exports = app, storage;
 module.exports.stop = function() {
   server.close();
 }
