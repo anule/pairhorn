@@ -1,0 +1,29 @@
+ Node modules
+node_modules
+.env
+# webpack bundles
+bundle.js
+bundle.js.map
+
+#eslint config
+.eslintrc.json
+
+TODO.md
+
+# JetBrains files
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+*.iws
+.idea/httpRequests
+ 

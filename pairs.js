@@ -27,11 +27,11 @@ module.exports = {
     let arr = shuffle(string.split(' '))
     let pairs = [];
     if (arr.length % 2 == 0) {
-      for (var i = 0; i <= arr.length-1; i+=2) {
+      for (let i = 0; i <= arr.length-1; i+=2) {
         pairs.push([arr[i], arr[i+1]])
       }
     } else {
-      for (var i = 0; i < arr.length-1; i+=2) {
+      for (let i = 0; i < arr.length-1; i+=2) {
         pairs.push([arr[i], arr[i+1]]);
       }
       pairs.push([arr[arr.length-1]]);

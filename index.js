@@ -11,6 +11,7 @@ const http = require('http');
 const request = require('request');
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan')
 const { pairs } = require('./pairs');
 const message = require('./message');
 const keepalive = require('./keepalive');
@@ -18,6 +19,10 @@ const keepalive = require('./keepalive');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'))
+}
 
 app.use(express.static(__dirname + '/public'));
 
@@ -40,11 +45,14 @@ storage.init({
   logging: true
 });
 
-storage.clear();
-
 /* *******************************
 /* Slash Command
 /* ***************************** */
+
+app.get('/pairhorn', (req, res) => {
+  res.send('yo')
+  console.log('storage values', storage.values())
+})
 
 app.post('/pairhorn', (req, res) => {
   if(req.body.token !== process.env.SLACK_VERIFICATION_TOKEN) {
